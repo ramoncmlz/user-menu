@@ -40,15 +40,15 @@ A main loop keeps the system running until the user chooses to log out.
 
 I created this project to practice programming logic in Python, mainly:
 
-functions
+- functions
 
-lists and dictionaries
+- lists and dictionaries
 
-conditional structures
+- conditional structures
 
-loops
+- loops
 
-program flow and state control
+- program flow and state control
 
 It's a simple project, but it greatly helps to understand how login systems work behind the scenes.
 
