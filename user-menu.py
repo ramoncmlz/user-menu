@@ -176,15 +176,10 @@ while True:
         action = show_menu(admin_options)
 
         if action == "Delete User":
-            show_users(user_list)
-            selected_user = input("Which user do you want to delete?: ")
-            if selected_user == "admin":
-                print("Error. You can't delete admin!")
-            else:
-                delete_user(user_list, selected_user)
+            delete_user(user_list)
 
         elif action == "Logout":
-            current_user = logout(current_user)
+            current_user = logout()
 
         elif action == "Exit":
             break
@@ -193,10 +188,10 @@ while True:
         action = show_menu(logged_options)
 
         if action == "Rename Username":
-            new_username = input("Enter your new username: ")
-            rename_user(user_list, current_user, new_username)
+            rename_user(user_list, current_user)
+
         elif action == "Logout":
-            current_user = logout(current_user)
+            current_user = logout()
 
         elif action == "Exit":
             break
