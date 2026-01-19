@@ -10,17 +10,17 @@ Tudo é feito usando apenas lógica e estruturas básicas do Python, sem banco d
 
 ⚙️ O que você pode fazer
 
-📝 Criar novos usuários
+- 📝 Criar novos usuários
 
-🔐 Fazer login usando nome de usuário e senha
+- 🔐 Fazer login usando nome de usuário e senha
 
-🚪 Sair
+- 🚪 Sair
 
-📋 Navegar por um menu interativo no terminal
+- 📋 Navegar por um menu interativo no terminal
 
-🛡️ Fazer login como administrador e gerenciar usuários
+- 🛡️ Fazer login como administrador e gerenciar usuários
 
-❌ Excluir usuários (com proteção para impedir a exclusão do administrador)
+- ❌ Excluir usuários (com proteção para impedir a exclusão do administrador)
 
 🧠 Como funciona nos bastidores
 
@@ -54,13 +54,9 @@ Criei este projeto para praticar lógica de programação em Python, principalme
 
 🚧 Próximos passos (em desenvolvimento)
 
-🔑 Opção para alterar a senha do usuário, como parte da evolução do sistema.
+- 📂 Armazene usuários em um arquivo .txt, permitindo salvar e carregar usuários registrados
 
-🔒 Implemente um sistema de segurança para limitar tentativas de login inválidas
-
-📂 Armazene usuários em um arquivo .txt, permitindo salvar e carregar usuários registrados
-
-🧪 Melhore as validações e a organização do código
+- 🧪 Melhore as validações e a organização do código
 
 ▶️ Como executar
 

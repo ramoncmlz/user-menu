@@ -10,17 +10,17 @@ Everything is done using only basic Python logic and structures, without a datab
 
 ⚙️ What you can do
 
-📝 Create new users
+- 📝 Create new users
 
-🔐 Log in using username and password
+- 🔐 Log in using username and password
 
-🚪 Log out
+- 🚪 Log out
 
-📋 Navigate through an interactive menu in the terminal
+- 📋 Navigate through an interactive menu in the terminal
 
-🛡️ Log in as admin and manage users
+- 🛡️ Log in as admin and manage users
 
-❌ Delete users (with protection to prevent deleting the admin)
+- ❌ Delete users (with protection to prevent deleting the admin)
 
 🧠 How it works behind the scenes
 
@@ -54,13 +54,9 @@ It's a simple project, but it greatly helps to understand how login systems work
 
 🚧 Next steps (under development)
 
-🔑 Option to change the user's password, as part of the system's evolution.
+- 📂 Persist users in a .txt file, allowing saving and loading of registered users
 
-🔒 Implement a security system to limit invalid login attempts
-
-📂 Persist users in a .txt file, allowing saving and loading of registered users
-
-🧪 Improve code validations and organization
+- 🧪 Improve code validations and organization
 
 ▶️ How to run
 
