@@ -1,65 +1,60 @@
-🇺🇸 English | 🇧🇷 [Portuguese](README.pt-BR.md)
 
-📌 About the project
+- When the program starts:
+  - The file is read
+  - Each line is converted into a **Python dictionary**
+  - Users are loaded into memory
 
-This project is a simple Python login system running in the terminal.
+- When the program exits:
+  - Dictionaries are converted back into text
+  - The file is overwritten with updated data
 
-The idea was to simulate a basic authentication flow, with guest users, logged-in users, and an administrator user, each with different menu options.
+This process was implemented **with the help of AI**, as part of the learning process to understand **how to structure, convert, and persist data between text files and Python data structures**.
 
-Everything is done using only basic Python logic and structures, without a database or external libraries.
+---
 
-⚙️ What you can do
+## 🔐 Security rules
 
-- 📝 Create new users
+- Username:
+  - Must be lowercase only
+  - Cannot be duplicated
 
-- 🔐 Log in using username and password
+- Password:
+  - Minimum of 8 characters
+  - Must start with an uppercase letter
+  - Must contain at least one number
 
-- 🚪 Log out
+- Login:
+  - 3 invalid attempts
+  - 3-minute temporary block after exceeding attempts
 
-- 📋 Navigate through an interactive menu in the terminal
+---
 
-- 🛡️ Log in as admin and manage users
+## 🎯 Project goal
 
-- ❌ Delete users (with protection to prevent deleting the admin)
+This project was created to **practice core backend concepts**, such as:
 
-🧠 How it works behind the scenes
-
-Users are stored in a dictionary list containing username and password. The program controls who is logged in through the `current_user` variable.
-
-Based on this, it decides which menu to show:
-
-👤 No user logged in → guest menu
-
-👥 Regular user → standard menu
-
-🛡️ Admin → menu with extra permissions
-
-A main loop keeps the system running until the user chooses to log out.
-
-🎯 Project Objective
-
-I created this project to practice programming logic in Python, mainly:
-
-- functions
-
+- authentication logic
+- state control
+- file manipulation
 - lists and dictionaries
+- validations
+- basic security simulation
 
-- conditional structures
+It is an educational project, but already structured with real-world evolution in mind.
 
-- loops
+---
 
-- program flow and state control
+## 🚧 Next steps
 
-It's a simple project, but it greatly helps to understand how login systems work behind the scenes.
+- 🚀 Use the **FastAPI** framework to connect the system to a database
+- 🗄️ Store user data in a **SQLite** database
+- 🔒 Implement **password hashing**
+- 🧪 Improve validations, error handling, and code organization
 
-🚧 Next steps (under development)
+---
 
-- 📂 Persist users in a .txt file, allowing saving and loading of registered users
+## ▶️ How to run
 
-- 🧪 Improve code validations and organization
+```bash
+python main.py
 
-▶️ How to run
-
-Simply run the file in the terminal:
-
-python user-menu.py
