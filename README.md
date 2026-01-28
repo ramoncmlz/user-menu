@@ -1,68 +1,93 @@
-## 📌 About the project
-
-This project is a **terminal-based login system written in Python**, developed with a focus on learning programming logic, authentication, and user management.
-
-The system allows user registration, login, and account management, with a distinction between regular users and an administrator. 
-User data is stored in a **text file (`.txt`)**, simulating data persistence without using a database, including basic security validations and access attempt control.
 
 ---
 
-- When the program starts:
-  - The file is read
-  - Each line is converted into a **Python dictionary**
-  - Users are loaded into memory
+# 🇺🇸 README.md
 
-- When the program exits:
-  - Dictionaries are converted back into text
-  - The file is overwritten with updated data
+```md
+🇺🇸 English | 🇧🇷 [Português](README.pt-BR.md)
 
-This process was implemented **with the help of AI**, as part of the learning process to understand **how to structure, convert, and persist data between text files and Python data structures**.
+## 📌 About SimpleAuth
 
----
+SimpleAuth is a **user authentication API built with FastAPI**, created to evolve a login system that previously ran only in the terminal into an **HTTP-based backend architecture**.
 
-## 🔐 Security rules
+Using FastAPI allows separating authentication logic from the interface, making the system more organized, reusable, and ready for future integrations such as web or mobile applications.
 
-- Username:
-  - Must be lowercase only
-  - Cannot be duplicated
-
-- Password:
-  - Minimum of 8 characters
-  - Must start with an uppercase letter
-  - Must contain at least one number
-
-- Login:
-  - 3 invalid attempts
-  - 3-minute temporary block after exceeding attempts
+Currently, user data is stored **in memory**, simulating real system behavior while core backend concepts are being learned.
 
 ---
 
-## 🎯 Project goal
+## ⚙️ Current features
 
-This project was created to **practice core backend concepts**, such as:
+- 🧑‍💻 User registration via endpoint (`/register`)
+- 🔐 Login with invalid attempt control
+- ⏳ Temporary blocking after multiple failed attempts
+- 🚪 User logout
+- ✏️ Username change
+- 🔄 Password change
+- 🛡️ Admin user with special permissions
+- ❌ User deletion (admin only)
+- 📋 User listing (admin only)
+- 🌐 REST API using FastAPI
 
-- authentication logic
-- state control
-- file manipulation
-- lists and dictionaries
-- validations
-- basic security simulation
+---
 
-It is an educational project, but already structured with real-world evolution in mind.
+## 🧠 How it works
+
+- Each user is represented by a **`User` class**, containing:
+  - `user_id`
+  - `username`
+  - `password`
+  - `is_logged`
+  - `attempts`
+  - `blocked_until`
+
+- Users are stored in an **in-memory list** (`user_list`).
+- The API exposes endpoints that manipulate users via HTTP requests.
+- Authentication state is managed using flags (`is_logged`), simulating sessions.
+- The system includes:
+  - username validation
+  - password validation
+  - login attempt control
+  - temporary blocking using `datetime` and `timedelta`
+
+---
+
+## 🆕 What’s new compared to the previous version
+
+- 🔁 The system no longer runs only in the terminal
+- 🌐 It now works as a **REST API**
+- 🧱 Uses **FastAPI** to structure routes and business logic
+- 🧠 Clear separation of concerns:
+  - validation
+  - authentication rules
+  - user management
+- 🚀 Codebase prepared for real data persistence
+
+---
+
+## 🎯 Why FastAPI was used
+
+FastAPI was chosen to:
+- learn how authentication works in **real backend systems**
+- expose features via HTTP
+- prepare the project for database integration
+- enable testing with tools like Postman or Swagger
+- keep the code clean, scalable, and well-structured
 
 ---
 
 ## 🚧 Next steps
 
-- 🚀 Use the **FastAPI** framework to connect the system to a database
-- 🗄️ Store user data in a **SQLite** database
-- 🔒 Implement **password hashing**
-- 🧪 Improve validations, error handling, and code organization
+- 🗄️ Implement a **relational database (SQLite)** for user persistence
+- 🔒 Add **password hashing** (e.g. bcrypt)
+- 🧩 Replace in-memory storage with a **persistence layer**
+- 🔑 Implement **token-based authentication (JWT)**
+- 🧪 Improve error handling and validations
 
 ---
 
 ## ▶️ How to run
 
 ```bash
-python main.py
+uvicorn main:app --reload
 

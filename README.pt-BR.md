@@ -1,68 +1,87 @@
-## 📌 Sobre o projeto
+🇧🇷 Português | 🇺🇸 [English](README.md)
 
-Este projeto é um **sistema de login em Python executado no terminal**, desenvolvido com foco em aprendizado de lógica de programação, autenticação e controle de usuários.
+## 📌 Sobre o SimpleAuth
 
-O sistema permite registro, login e gerenciamento de contas, com diferenciação entre usuários comuns e administrador.
-Os dados dos usuários são armazenados em um **arquivo de texto (`.txt`)**, simulando persistência de dados sem uso de banco de dados, com validações de segurança e controle de tentativas de acesso.
+SimpleAuth é uma **API de autenticação de usuários desenvolvida com FastAPI**, criada com o objetivo de evoluir um sistema de login que antes rodava apenas no terminal para uma **arquitetura baseada em requisições HTTP**.
 
----
+O uso do FastAPI permite separar a lógica de autenticação da interface, tornando o sistema mais organizado, reutilizável e preparado para futuras integrações, como aplicações web, mobile ou frontends em geral.
 
-- Ao iniciar o programa:
-  - Os dados do arquivo são lidos
-  - Cada linha é convertida em um **dicionário Python**
-  - Os usuários são carregados em memória
-
-- Ao sair do sistema:
-  - Os dicionários são convertidos novamente em texto
-  - O arquivo é sobrescrito com os dados atualizados
-
-Esse processo foi implementado **com auxílio de IA**, com o objetivo de **aprender como estruturar, converter e persistir dados entre arquivos de texto e estruturas Python**.
+Atualmente, os dados dos usuários são mantidos **em memória**, simulando o funcionamento de um sistema real enquanto os conceitos são aprendidos.
 
 ---
 
-## 🔐 Regras de segurança
+## ⚙️ Funcionalidades atuais
 
-- Username:
-  - Deve ser todo em letras minúsculas
-  - Não pode ser duplicado
-
-- Senha:
-  - Mínimo de 8 caracteres
-  - Deve começar com letra maiúscula
-  - Deve conter pelo menos um número
-
-- Login:
-  - 3 tentativas inválidas
-  - Bloqueio temporário de 3 minutos após exceder o limite
+- 🧑‍💻 Registro de usuários via endpoint (`/register`)
+- 🔐 Login com controle de tentativas inválidas
+- ⏳ Bloqueio temporário após exceder o número de tentativas
+- 🚪 Logout de usuários autenticados
+- ✏️ Alteração de nome de usuário
+- 🔄 Alteração de senha
+- 🛡️ Usuário administrador com permissões especiais
+- ❌ Exclusão de usuários (somente admin)
+- 📋 Listagem de usuários (somente admin)
+- 🌐 API REST usando FastAPI
 
 ---
 
-## 🎯 Objetivo do projeto
+## 🧠 Como o sistema funciona
 
-Este projeto foi criado para **treinar conceitos fundamentais de backend**, como:
+- Cada usuário é representado por uma **classe `User`**, contendo:
+  - `user_id`
+  - `username`
+  - `password`
+  - `is_logged`
+  - `attempts`
+  - `blocked_until`
 
-- lógica de autenticação
-- controle de estado
-- manipulação de arquivos
-- listas e dicionários
-- validações
-- simulação de segurança básica
+- Os usuários são armazenados em uma **lista em memória** (`user_list`).
+- A API expõe endpoints que manipulam esses usuários através de requisições HTTP.
+- O controle de autenticação é feito por estado (`is_logged`), simulando sessões.
+- O sistema implementa:
+  - validação de nome do usuário
+  - validação de senha
+  - controle de tentativas
+  - bloqueio temporário usando `datetime` e `timedelta`
 
-É um projeto educacional, mas já estruturado pensando em evolução real.
+---
+
+## 🆕 O que há de novo em relação à versão anterior
+
+- 🔁 O sistema deixou de ser apenas um menu de terminal
+- 🌐 Passou a funcionar como uma **API REST**
+- 🧱 Uso de **FastAPI** para estruturar rotas e regras de negócio
+- 🧠 Separação clara entre:
+  - validação
+  - regras de autenticação
+  - controle de usuários
+- 🚀 Código preparado para persistência real de dados
+
+---
+
+## 🎯 Por que FastAPI foi usado
+
+O FastAPI foi escolhido para:
+- aprender como sistemas de login funcionam em **backends reais**
+- expor funcionalidades via HTTP
+- preparar o projeto para integração com banco de dados
+- facilitar testes com ferramentas como Postman ou Swagger
+- tornar o código mais escalável e organizado
 
 ---
 
 ## 🚧 Próximos passos
 
-- 🚀 Utilizar o framework **FastAPI** para conectar o sistema a um banco de dados
-- 🗄️ Armazenar os dados de usuários em um banco **SQLite**
-- 🔒 Implementar **criptografia de senha**
-- 🧪 Melhorar validações, tratamento de erros e organização do código
+- 🗄️ Implementar um **banco de dados relacional (SQLite)** para persistência de usuários
+- 🔒 Adicionar **hashing de senhas** (ex: bcrypt)
+- 🧩 Substituir armazenamento em memória por **camada de persistência**
+- 🔑 Implementar autenticação baseada em **tokens (JWT)**
+- 🧪 Melhorar tratamento de erros e validações
 
 ---
 
 ## ▶️ Como executar
 
 ```bash
-python main.py
+uvicorn main:app --reload
 
